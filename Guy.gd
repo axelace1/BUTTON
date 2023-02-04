@@ -16,6 +16,8 @@ export var default_height = 1.5
 export var crouch_height = 0.5
 
 var mouse_sensitivity = 0.05
+var iscrouching
+
 
 var direction = Vector3()
 var velocity = Vector3()
@@ -44,7 +46,7 @@ func _input(event):
 func _process(delta):
 	speed = default_speed
 	var head_bonked = false
-	
+	iscrouching = false
 	
 	
 	if is_on_floor():
@@ -63,7 +65,10 @@ func _process(delta):
 	
 	if Input.is_action_pressed("crouch"):
 		pcap.shape.height -= crouch_speed * delta
-		speed = slide_speed
+		iscrouching = true
+		if is_on_floor():
+			speed = slide_speed
+
 	elif not head_bonked:
 		pcap.shape.height += crouch_speed * delta
 	pcap.shape.height = clamp(pcap.shape.height, crouch_height, default_height)
@@ -76,7 +81,7 @@ func _process(delta):
 				target.health -= damage
 	
 	
-	if Input.is_action_just_pressed("jump") and jumps_available > 0:
+	if Input.is_action_just_pressed("jump") and jumps_available > 0 and iscrouching == false:
 		fall.y = jump
 		jumps_available = jumps_available - 1
 	
@@ -103,10 +108,10 @@ func _process(delta):
 	
 	direction = direction.normalized()
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
-	velocity = move_and_slide(velocity, Vector3.UP)
+	velocity = move_and_slide(velocity, Vector3.UP, true)
 	
 	
 	
 	
 	
-	move_and_slide(fall, Vector3.UP)
+	move_and_slide(fall, Vector3.UP, true)

@@ -2,24 +2,13 @@
 
 [ext_resource path="res://Guy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Badguy.tscn" type="PackedScene" id=2]
-
-[sub_resource type="BoxShape" id=1]
-
-[sub_resource type="CubeMesh" id=2]
+[ext_resource path="res://map1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://worseguy.tscn" type="PackedScene" id=4]
 
 [node name="Spatial" type="Spatial"]
 
-[node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-mesh = SubResource( 2 )
-
 [node name="Guy" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.43935, 0 )
 
 [node name="Badguy" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, 0, 2.55, 16.9181 )
@@ -32,3 +21,35 @@ transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, -14.019, 2.55, 1.47259 )
 
 [node name="Badguy4" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, -0.40467, 2.55, -14.9287 )
+
+[node name="Badguy5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, -60.5057, 4.99152, 83.0374 )
+
+[node name="Badguy6" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, 26.6491, 4.99152, 112.599 )
+
+[node name="Badguy7" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, 29.123, 10.2498, 71.3434 )
+
+[node name="Spatial" parent="." instance=ExtResource( 3 )]
+
+[node name="worseguy" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, 0, 4.55, 47 )
+
+[node name="worseguy4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, -64.5437, 4.55, 99.8352 )
+
+[node name="worseguy5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, -53.151, 4.55, 124.284 )
+
+[node name="worseguy6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, 34.8252, 4.55, 124.284 )
+
+[node name="worseguy7" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, 53.9231, 13.785, 66.4694 )
+
+[node name="worseguy2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, -21.8328, 4.55, 47 )
+
+[node name="worseguy3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 2.55432, 0, 0, 0, 1, -21.8328, 4.55, 61.6911 )
